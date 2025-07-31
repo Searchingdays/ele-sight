@@ -20,7 +20,7 @@
   <h1>Previous Elephant Sightings</h1>
   <div id="sightingsList">Loading...</div>
   <script >
-     fetch("http://localhost:3000/api/sightings/all")
+     fetch("/api/sightings/all")
       .then(res => res.json())
       .then(data => {
         const container = document.getElementById("sightingsList");
