@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>All Elephant Sightings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .sighting {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Previous Elephant Sightings</h1>
+  <div id="sightingsList">Loading...</div>
+  <script >
+     fetch("http://localhost:3000/api/sightings/all")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("sightingsList");
+        container.innerHTML = ""; // Clear loading text
+        if (data.length === 0) {
+          container.textContent = "No sightings reported yet.";
+          return;
+        }
+        data.forEach(s => {
+          const div = document.createElement("div");
+          div.className = "sighting";
+          div.innerHTML = `
+            <strong>Description:</strong> ${s.description}<br>
+            <strong>Latitude:</strong> ${s.latitude}<br>
+            <strong>Longitude:</strong> ${s.longitude}<br>
+            <strong>Timestamp:</strong> ${new Date(s.timestamp).toLocaleString()}
+          `;
+          container.appendChild(div);
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById("sightingsList").textContent = "Failed to load sightings.";
+      });
+  </script>
+
+</body>
+</html>

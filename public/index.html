@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Elephant Sighting Reporter</title>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+ <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Report Elephant Sighting</h2>
+  <div id="map"></div>
+  <div class="controls">
+  <button id="allsightings">Show All sightings</button>
+  <a href="/detailed.html" id="detailed"><button> Details of all sightings</button></a>
+  </div>
+
+
+  <form id="form">
+    <label>Description:</label><br>
+    <input type="text" id="description" required><br><br>
+    <button type="submit">Report Sighting</button>
+  </form>
+
+  
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+<script type="module" src="scripts.js"></script>
+
+</body>
+</html>
