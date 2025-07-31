@@ -17,7 +17,7 @@ mongoose.connect(uri)
  .then(response => console.log("connected"))
  .catch(e => console.log("not connected"))
 
-app.use('/api/sightings', sightingsRoutes);
+app.use('/api/sightings', sightingsRoutes); // first add /api/sightings and then will add /xyz whatever is defined in routes/sightings.js file
 
 
 app.use(express.static(path.join(__dirname,'..', 'public')));

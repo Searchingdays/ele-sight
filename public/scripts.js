@@ -56,7 +56,7 @@ document.getElementById("form").addEventListener("submit", function (e) {
 
   if (clickedLocation.lat){
 
-  fetch("http://localhost:3000/api/sightings/report", {
+  fetch("/api/sightings/report", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -79,7 +79,7 @@ document.getElementById("form").addEventListener("submit", function (e) {
 }
   else {
 
-  fetch("http://localhost:3000/api/sightings/report", {
+  fetch("/api/sightings/report", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -116,7 +116,7 @@ document.getElementById("allsightings").addEventListener("click", () => {
 
 
 function getsightings(){
-  fetch('http://localhost:3000/api/sightings/all')
+  fetch('/api/sightings/all')
     .then(res => res.json())
     .then(sightings => {
         console.log(sightings)
